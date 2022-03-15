@@ -1,0 +1,62 @@
+<div class="head">
+    <h2>Write New Mail Here</h2>
+</div>
+<!-- <form action="" method="post"> -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 p-3" id="compose">
+            <div class="row m-0">
+                <div class="col-md-12 bg-dark text-white">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h3 class="pt-2" style="font-size: 18px;" id="text1">{{title}} Message</h3>
+                        </div>
+                        <div class="col-md-6 pt-2 message-icon">
+                            <span class="pull-right">
+                                    <i class="fa fa-minus" (click)="minimize()" aria-hidden="true"> </i>
+                                    <i class="fa fa-expand m-2" *ngIf="tog_fname; else elseBlock" (click)="maxscreen()" aria-hidden="true"></i>
+                                    <ng-template #elseBlock> <i class="fa fa-compress m-2" (click)="minscreen()" aria-hidden="true"></i> </ng-template>
+                                    <i class="fa fa-times" (click)="closemail()" aria-hidden="true"></i>
+                                </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 p-0 message-input" id="message-input">
+
+                    <div *ngIf="new; else elsePart" class="form-group">
+                        <input type="email" class="form-control" title="To" id="to_email" name="to_email" required 
+                            [(ngModel)]="new_mail.to" aria-describedby="emailHelp" placeholder="To">
+                        <input type="text" class="form-control" title="Subject" id="mail_subject" name="mail_subject" 
+                            [(ngModel)]="new_mail.sub" aria-describedby="emailHelp" placeholder="Subject">
+                        <angular-editor class="form-control" id="mail_text" aria-readonly="true" aria-label="Message Body" 
+                            [(ngModel)]="new_mail.msg" [config]="config"></angular-editor>
+                    </div>
+                    <ng-template #elsePart>
+                        <div class="form-group">
+                            <input type="email" class="form-control" title="To" id="to_email" name="to_email" value="{new_mail.to}" required 
+                                [(ngModel)]="new_mail.to" aria-describedby="emailHelp" placeholder="To">
+                            <input type="text" class="form-control" title="Subject" id="mail_subject" value="{new_mail.sub}" name="mail_subject" 
+                                [(ngModel)]="new_mail.sub" aria-describedby="emailHelp" placeholder="Subject">
+                            <div *ngIf="forward" class="card" role="text" style="border-radius: 0% !important;color: rgb(216, 57, 57);">From:{{new_mail.from}}</div>
+                            <angular-editor class="form-control" id="mail_text" aria-readonly="true" aria-label="Message Body" name="mail_text" [(ngModel)]="new_mail.msg" [config]="config">
+                                {{new_mail.msg}}
+                            </angular-editor>
+                        </div>
+                    </ng-template>
+
+                </div>
+                <div class="col-md-12 message-footer p-2" id="message-footer">
+                    <button (click)="Send()" title="Send Mail" class="btn btn-primary btn-sm pl-3 pr-3">SEND&nbsp;
+                        <i class="fa fa-send" aria-hidden="true" style="color: white;"></i></button>
+
+                    <span class="pull-right">
+                            <i class="fa fa-trash-o" title="Discard" (click)="discard()" aria-hidden="true"></i>
+                        </span>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- </form> -->

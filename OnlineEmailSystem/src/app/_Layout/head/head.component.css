@@ -1,0 +1,176 @@
+/* body {
+    padding: 25px;
+    background-color: white;
+    color: black;
+    font-size: 25px;
+  }
+  
+  .dark-mode {
+    background-color: black;
+    color: white;
+  } */
+
+.padding {
+    padding: 8px 16px!important
+}
+
+.left-align {
+    text-align: left!important
+}
+
+
+/** Header */
+
+.bar {
+    color: white;
+    margin-left: 11px;
+    border: none;
+}
+
+.header {
+    background-color: #121212;
+    height: 68px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid whitesmoke;
+}
+
+.header__left img {
+    object-fit: contain;
+    height: 80px;
+    margin-left: 5px;
+}
+
+.header__left {
+    display: flex;
+    align-items: center;
+}
+
+.header__left span {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.header__middle input {
+    border: none;
+    width: 100%;
+    outline: none;
+    font-size: medium;
+    background-color: transparent;
+}
+
+.header__middle {
+    display: flex;
+    flex: 0.7;
+    align-items: center;
+    background-color: whitesmoke;
+    padding: 10px;
+    border-radius: 5px;
+    margin-right: 20%;
+}
+
+.material-icons {
+    color: #231F20;
+    background-color: inherit;
+}
+
+
+/** Navbar */
+
+#navbar-icon {
+    float: left;
+    padding-top: 10px;
+}
+
+.navbar-container {
+    height: 50px;
+    width: 100%;
+    background-color: #181818;
+    color: white;
+    margin: 5px;
+    padding: 3px;
+    overflow: hidden;
+    animation-name: navbar-container-click;
+    animation-duration: 0.3s;
+}
+
+@keyframes navbar-container-click {
+    from {
+        top: 0%;
+        height: 0px;
+        width: 0px;
+    }
+    to {
+        top: 50px;
+        height: 50px;
+        width: 100%;
+    }
+}
+
+.navbar-container button {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    font-size: 18px;
+}
+
+.navbar-container button:hover {
+    color: black;
+    background-color: lightgray;
+}
+
+.navbar-container button:active {
+    color: white;
+    background-color: #231F20;
+}
+
+.navbar-container button i {
+    margin-right: 2px;
+}
+
+#text-logo {
+    font-size: 1cm;
+    margin-left: 10px;
+    margin-top: 5px;
+    color: white;
+}
+
+#search-icon {
+    padding: 8px;
+    border-radius: 4px;
+    background-color: gray;
+}
+
+.logo {
+    margin-left: 50px;
+    color: white;
+    display: inline;
+}
+
+.search {
+    padding-left: 20%;
+    display: inline;
+}
+
+.disabledNoOfCasesDiv {
+    display: none;
+}
+
+.searchbox {
+    width: 40%;
+    display: inline;
+}
+
+.selected {
+    background-color: #192734;
+    border-width: 3px;
+    color: black !important;
+    background-color: skyblue;
+    border-bottom: 3px solid skyblue;
+}
+
+.header_end {
+    float: left;
+}

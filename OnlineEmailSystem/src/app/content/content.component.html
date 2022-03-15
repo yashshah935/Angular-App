@@ -1,0 +1,35 @@
+<div id="Borge" class="container">
+    <br>
+    <img class="w3-round  w3-animate-top" src="../../assets/Images/mail_logo.png" style="width:20%;">
+    <h5><strong>Subject : </strong>{{person.sub}}</h5>
+    <h4><strong>To :</strong> {{person.to}} </h4>
+    <h4><strong>From :</strong> {{person.from}} </h4>
+    <h6><i class="fa fa-clock-o "></i> {{person.time |date:'MMM d, y, h:mm a'}}</h6>
+
+    <a style="margin-right: 5px;" class="btn btn-primary" (click)="back()"> 
+        Back 
+        <i class="w3-margin-left fa fa-arrow-left"></i>
+    </a>
+
+    <!-- <a style="margin-right: 5px;" class="btn btn-primary" href="#"> 
+        Reply 
+        <i class="w3-margin-left fa fa-mail-reply"></i>
+    </a> -->
+
+    <a class="btn btn-primary" (click)="Forward(person.mail_id)">
+         Forward 
+        <i class="w3-margin-left fa fa-arrow-right"></i>
+    </a>
+    <hr style="border: 3px solid whitesmoke;">
+    <p>
+        <angular-editor [config]="config" id="text" [(ngModel)]="person.msg"></angular-editor>
+    </p>
+    <br/>
+    <div>
+        <!--  Files -->
+    </div>
+    <p>Best Regards, <br>{{person.from}}</p>
+    <hr style="border: 3px solid whitesmoke;">
+
+
+</div>

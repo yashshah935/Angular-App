@@ -1,0 +1,31 @@
+<div class="main__body">
+    <div class="head">
+        <h2 style="padding: 4px;" >Draft Mails</h2>
+    </div>
+    <div class="emailList">
+        <!-- Email List rows starts -->
+        <div class="emailList__list" *ngFor="let mail of draft_list | searchfilter : searchTerm">
+            <!-- Email Row Starts -->
+            <!-- <div *ngIf="mail.type == 'draft'"> -->
+                <div (click)="navigate(mail.mail_id)" class="emailRow" >
+                    <div class="emailRow__options">
+                        <span class="material-icons"> work_outline </span>
+                        <span class="material-icons"> check_circle </span>
+                        <i class="fa fa-edit fa-2x material-icons"></i>
+                    </div>
+
+                    <h3 class="emailRow__title" [innerHTML]="mail.username | highlightInbox : searchTerm"></h3>
+
+                    <div class="emailRow__message">
+                        <h4>
+                            Subject : {{mail.sub}}
+                            
+                        </h4>
+                    </div>
+
+                    <p class="emailRow__time">{{mail.time|date:'MMM d, y, h:mm a'}}</p>
+                </div>
+            <!-- </div> -->
+            <!-- Email Row Ends -->
+        </div>
+    </div>

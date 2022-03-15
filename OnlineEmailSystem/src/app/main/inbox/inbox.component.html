@@ -1,0 +1,36 @@
+<div class="container-fluid main__body">
+    <div class="head">
+        <h2 style="padding: 4px;" >Inbox Mails</h2>
+    </div>
+    <div class="emailList">
+        <!-- Email List rows starts -->
+        <!--<span hidden [innerHTML]="mail_list | searchfilter : searchTerm"></span>-->
+        <div class="emailList__list" *ngFor="let mail of inbox_list| searchfilter : searchTerm">
+            <!-- Email Row Starts -->
+            <!-- <div *ngIf="mail.type == 'inbox'"> -->
+                <div (click)="navigate(mail.mail_id)" class="emailRow" [class]="{'unread':mail.read == false}">
+                    <div class="emailRow__options">
+                        <span class="material-icons"> star_border </span>
+                        <i class="fa fa-envelope material-icons"></i>
+                        <span class="material-icons"> label_important </span>
+                    </div>
+
+                    <span class="emailRow__title"  [innerHTML]="mail.username | highlightInbox : searchTerm"></span>
+
+                    <div class="emailRow__message">
+                         <h4>
+                            Subject : {{mail.sub}}
+                                <!-- <span class="emailRow__description"> -
+                                    {{mail.msg}} </span> -->
+                        </h4>
+                    </div>
+
+                    <p class="emailRow__time">{{mail.time|date:'MMM d, y, h:mm a'}}</p>
+
+                </div>
+            <!-- </div> -->
+            <!-- Email Row Ends -->
+
+        </div>
+    </div>
+</div>

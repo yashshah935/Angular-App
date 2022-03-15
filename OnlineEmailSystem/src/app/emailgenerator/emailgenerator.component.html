@@ -1,0 +1,30 @@
+<div class="page-wrapper bg-gra-02 p-t-80 p-b-100 font-poppins">
+    <div class="wrapper wrapper--w680">
+        <div class="card card-4">
+            <div class="card-body">
+                <h2 class="title">Email Generator</h2>
+                <form #regForm="ngForm" (submit)="emailValidate()">
+                    <div class="row row-space">
+                        <div class="col-10">
+                            <div class="input-group">
+                                <label class="label">Email</label>
+                                <input class="input--style-4" required [(ngModel)]="email" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" #email_ctl="ngModel" id="email" type="email" name="first_name">
+                                <div *ngIf="email_ctl.invalid && (email_ctl.dirty || email_ctl.touched)">
+                                    <div *ngIf="email_ctl.errors?.required" class="alert alert-danger">
+                                        Email is required.
+                                    </div>
+                                    <div *ngIf="email_ctl.errors?.pattern" class="alert alert-danger">
+                                        Email is invalid.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-t-15">
+                        <button class="btn btn--radius-2 btn--blue" [disabled]="regForm.form.invalid" type="submit">Login</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

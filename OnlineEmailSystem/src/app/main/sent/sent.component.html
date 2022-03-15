@@ -1,0 +1,33 @@
+<div class="main__body">
+    <div class="head">
+        <h2 style="padding: 4px;" >Sent Mails</h2>
+    </div>
+    <div class="emailList">
+        <!-- Email List rows starts -->
+        <div class="emailList__list" *ngFor="let mail of sent_list | searchfilter : searchTerm">
+            <!-- Email Row Starts -->
+                <div (click)="navigate(mail.mail_id)" class="emailRow" >
+                    <div class="emailRow__options">
+                        <span class="material-icons">thumb_up_off_alt</span>
+                        <i class="fa fa-share-square fa-2x material-icons"></i>
+                        <span *ngIf="mail.read;else elseRead" style="color:green">Seen<i class="fa fa-check" aria-hidden="true"></i></span>
+                        <ng-template #elseRead><span style="color:gray">Sent</span></ng-template>
+                        <span class="material-icons"> label_important </span>
+                        
+                    </div>
+
+                    <h3 class="emailRow__title" [innerHTML]="mail.username | highlightSent : searchTerm"></h3>
+
+                    <div class="emailRow__message">
+                        <h4>
+                            Subject : {{mail.sub}}
+                            
+                            
+                        </h4>
+                    </div>
+
+                    <p class="emailRow__time">{{mail.time|date:'MMM d, y, h:mm a'}}</p>
+                </div>
+            <!-- Email Row Ends -->
+        </div>
+    </div>

@@ -1,0 +1,15 @@
+db.createCollection("Mails")
+db.createCollection("Draft")
+db.createCollection("counters")
+db.createCollection("draft_count")
+db.createCollection("users")
+db.counters.insert({
+	"_id":"mail_id",
+	"sequence_value": 0
+})
+db.draft_count.insert({
+	"_id":"mail_id",
+	"draft_value": 0
+})
+
+

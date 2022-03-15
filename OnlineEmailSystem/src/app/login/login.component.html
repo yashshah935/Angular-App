@@ -1,0 +1,102 @@
+<div class="page-wrapper bg-gra-02 p-t-80 p-b-100 font-poppins">
+    <div class="wrapper wrapper--w680">
+        <div class="card card-4">
+            <div class="card-body">
+                <h2 class="title">Registration Form</h2>
+                <form #regForm="ngForm" method="post" (submit)="registerUser()">
+                    <div class="row row-space">
+                        <div class="col-2">
+                            <div class="input-group">
+                                <label class="label">first name</label>
+                                <input class="input--style-4" required [(ngModel)]="user.fname" #fname_ctl="ngModel" type="text" name="first_name">
+                                <div *ngIf="fname_ctl.invalid && (fname_ctl.dirty || fname_ctl.touched)">
+                                    <div *ngIf="fname_ctl.errors?.required" class="alert alert-danger">
+                                        First name is required.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="input-group">
+                                <label class="label">last name</label>
+                                <input class="input--style-4" required [(ngModel)]="user.lname" #lname_ctl="ngModel" type="text" name="last_name">
+                                <div *ngIf="lname_ctl.invalid && (lname_ctl.dirty || lname_ctl.touched)">
+                                    <div *ngIf="lname_ctl.errors?.required" class="alert alert-danger">
+                                        Last name is required.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row row-space">
+                        <div class="col-2">
+                            <div class="input-group">
+                                <label class="label">Phone Number</label>
+                                <input class="input--style-4" required [pattern]="mobNumberPattern" [(ngModel)]="user.mobileNumber" #phone_ctl="ngModel" type="text" name="phone">
+                                <div *ngIf="phone_ctl.invalid && (phone_ctl.dirty || phone_ctl.touched)">
+                                    <div *ngIf="phone_ctl.errors?.required" class="alert alert-danger">
+                                        Phone Number is required.
+                                    </div>
+                                    <div *ngIf="phone_ctl.errors?.pattern" class="alert alert-danger">
+                                        Mobile number is not valid.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="input-group">
+                                <label class="label col-12">Gender</label>
+                                <div class="p-t-10">
+                                    <label class="radio-container m-r-45">Male
+                                            <input type="radio" checked="checked" name="gender" value="male" [(ngModel)]="user.gender" required>
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    <label class="radio-container">Female
+                                            <input type="radio" name="gender" value="female" [(ngModel)]="user.gender" required>
+                                            <span class="checkmark"></span>
+                                        </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row row-space" ngModelGroup="passwords" #passwords="ngModelGroup" appPasswordcheck>
+                        <div class="col-2">
+                            <div class="input-group">
+                                <label class="label">Password</label>
+                                <input class="input--style-4" required minlength="6" [(ngModel)]="user.password" #password_ctl="ngModel" type="password" name="password" #password>
+                                <div *ngIf="password_ctl.invalid && (password_ctl.dirty || password_ctl.touched)">
+                                    <div *ngIf="password_ctl.errors?.required" class="alert alert-danger">
+                                        Password is required.
+                                    </div>
+                                    <div *ngIf="password_ctl.errors?.minlength" class="alert alert-danger" style="font-size: 12px;">
+                                        Password must be at least 6 characters
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="input-group">
+                                <label class="label">Confirm Password</label>
+                                <input class="input--style-4" required [(ngModel)]="user.c_password" (change)="checkpaassword(password.value,c_password.value)" #c_password_ctl="ngModel" type="password" name="c_password" #c_password>
+                                <div *ngIf="c_password_ctl.invalid && (c_password_ctl.dirty || c_password_ctl.touched)">
+                                    <div *ngIf="c_password_ctl.errors?.required" class="alert alert-danger">
+                                        Confirm Password is required.
+                                    </div>
+                                </div>
+                                <div *ngIf="hasError" class="alert alert-danger">
+                                    Passwords does not match.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-t-15">
+                        <button class="btn btn--radius-2 btn--blue" [disabled]="submit || regForm.form.invalid" type="submit">Submit</button>
+                        <h4 class="p-3 h4 text-dark text-center">
+                            Already have Account Click <a style="color:blue" [routerLink]="''">here</a>!
+                        </h4>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

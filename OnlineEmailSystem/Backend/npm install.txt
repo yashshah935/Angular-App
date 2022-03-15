@@ -1,0 +1,8 @@
+npm install jquery --save
+npm install --save-dev @types/jquery
+
+npm install mongodb
+npm install express
+npm install mongoose
+
+npm install @kolkov/angular-editor --save
